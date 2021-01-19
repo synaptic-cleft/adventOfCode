@@ -5,19 +5,15 @@ import (
 	"regexp"
 	"strings"
 	"bufio"
-	"os"
 	"fmt"
+
+	helper "github.com/synaptic-cleft/adventOfCode/internal"
 )
 
 var bagColor int = 0
 
 func Solve() {
-	file, error := os.Open("/Users/maja/gitRepo/adventOfCode/day7/input.txt")
-
-	if error != nil {
-		fmt.Println("Could not read file.")
-	}
-
+	file := helper.GetInput("day7")
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)

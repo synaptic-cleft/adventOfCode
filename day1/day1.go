@@ -3,21 +3,13 @@ package day1
 import (
 	"strconv"
 	"bufio"
-	"os"
 	"fmt"
+
+	helper "github.com/synaptic-cleft/adventOfCode/internal"
 )
 
 func Solve() {
-	fmt.Println("hoi")
-
-	// read input file
-	// FIX: relative path
-	file, error := os.Open("/Users/maja/gitRepo/adventOfCode/day1/input.txt")
-
-	if error != nil {
-		fmt.Println("Could not read file.")
-	}
-
+	file := helper.GetInput("day1")
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)

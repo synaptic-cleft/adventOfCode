@@ -4,8 +4,9 @@ import (
 	"strconv"
 	"strings"
 	"bufio"
-	"os"
 	"fmt"
+	
+	helper "github.com/synaptic-cleft/adventOfCode/internal"
 )
 
 type instruction struct {
@@ -15,12 +16,7 @@ type instruction struct {
 }
 
 func Solve() {
-	file, error := os.Open("/Users/maja/gitRepo/adventOfCode/day8/input.txt")
-
-	if error != nil {
-		fmt.Println("Could not read file.")
-	}
-
+	file := helper.GetInput("day8")
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)

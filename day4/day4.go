@@ -5,20 +5,17 @@ import (
 	"strconv"
 	"strings"
 	"bufio"
-	"os"
 	"fmt"
+
+	helper "github.com/synaptic-cleft/adventOfCode/internal"
 )
 
 func Solve() {
-	file, error := os.Open("/Users/maja/gitRepo/adventOfCode/day4/input.txt")
-
-	if error != nil {
-		fmt.Println("Could not read file.")
-	}
-
+	file := helper.GetInput("day4")
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
+
 	var lines []string
 
 	for scanner.Scan() {

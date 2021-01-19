@@ -1,30 +1,25 @@
 package day2
 
 import (
-	"strconv"
-	"regexp"
-	"strings"
 	"bufio"
-	"os"
 	"fmt"
-)
+	"os"
+	"regexp"
+	"strconv"
+	"strings"
 
+	helper "github.com/synaptic-cleft/adventOfCode/internal"
+)
 
 var correctPasswordCount = 0
 var correctPasswordCountSecondRuleSet = 0
 
+// Solve day 2
 func Solve() {
-	file, error := os.Open("./day2/input.txt")
-
-	if error != nil {
-		fmt.Println("Could not read file.")
-		os.Exit(1)
-	}
-
+	file := helper.GetInput("day2")
 	defer file.Close()
 
 	scanner := bufio.NewScanner(file)
-
 
 	for scanner.Scan() {
 		line := strings.Fields(scanner.Text())
@@ -54,7 +49,7 @@ func countCorrectPasswords(pw string, letter string, min int, max int) {
 
 	occurenceOfNumberInPassword := len(regex.FindAllStringIndex(pw, -1))
 
-	if (occurenceOfNumberInPassword >= min && occurenceOfNumberInPassword <= max) {
+	if occurenceOfNumberInPassword >= min && occurenceOfNumberInPassword <= max {
 		correctPasswordCount++
 	}
 }
